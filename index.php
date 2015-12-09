@@ -31,9 +31,9 @@ include 'initialisation.php';
 	</p>
 	</div> 
 	<div id="accesHierarchique">
-titi
-
-
+		<?php
+			include'ServeurPrincipal/acces_hierarchique.php';
+		?>
 	</div>
 	<div id="logindisplay">
 	</div>
