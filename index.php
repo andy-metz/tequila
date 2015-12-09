@@ -1,4 +1,4 @@
-<?php  
+﻿<?php  
 header('Content-Type: text/html; charset=utf-8');
 include 'initialisation.php'; 
 
@@ -31,6 +31,7 @@ include 'initialisation.php';
 	</p>
 	</div> 
 	<div id="accesHierarchique">
+toto
 
 
 	</div>
