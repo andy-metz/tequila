@@ -31,7 +31,7 @@ include 'initialisation.php';
 	</p>
 	</div> 
 	<div id="accesHierarchique">
-toto
+titi
 
 
 	</div>
