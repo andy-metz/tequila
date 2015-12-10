@@ -116,16 +116,105 @@ for( $i=0;  $i<$size ; ++$i)
 check_and_count_child($id_alim_pos);
 $id_alim_pos=array_unique($id_alim_pos);
 $id_alim_pos=array_values($id_alim_pos);
-print_r($id_alim_pos);
 
+echo "<br>";
 check_and_count_child($id_alim_neg);
 $id_alim_neg=array_unique($id_alim_neg);
 $id_alim_neg=array_values($id_alim_neg);
-print_r($id_alim_neg);
 
-// Faire une intersection sur les tableaux , donne l'ensemble propre 
-// des aliments voulue
-// aller chercher les recettes 
+echo"<br>";
+
+$tab_res_final=array_diff($id_alim_pos,$id_alim_neg);
+
+// fonction qui cherche les recettes potentiellement acceptable
+// génère des doublons dans le tableau
+function check_recette($id_alim)
+{
+	$conn = mysqli_connect("127.0.0.1", "root", "", "myDB");
+	mysqli_set_charset($conn,("UTF8"));
+
+	$recette_find=array();
+	$size=count($id_alim);
+
+	for($i=0;$i<$size;$i++)
+	{
+		$data=$id_alim[$i];
+		$data=mysqli_real_escape_string($conn,$data);
+
+		$sql="SELECT `idRecette`
+		FROM CONTIENT
+		WHERE `idAliment`='$data'";
+		$query=mysqli_query($conn,$sql);
+
+		while($id_recette_trouve=mysqli_fetch_assoc($query))
+		{	$result=$id_recette_trouve['idRecette'];
+			array_push($recette_find,$result);
+		}
+	}
+	mysqli_close($conn);
+	return $recette_find;
+}
+
+//Fonction qui retire les recettes qui possèdent des aliments non désiré du tableau recette
+function validation_recette(&$id_recette,$id_forbid_alim)
+{	$conn = mysqli_connect("127.0.0.1", "root", "", "myDB");
+	mysqli_set_charset($conn,("UTF8"));
+
+	$size_forbid_alim=count($id_forbid_alim);
+	$size_recette=count($id_recette);
+	
+	for($i=0;$i<$size_recette;$i++)
+	{	
+			
+				$tab_alim_recette=array();
+				$data=mysqli_real_escape_string($conn,$id_recette[$i]);
+
+				$sql="SELECT `idAliment`
+					FROM CONTIENT
+					WHERE `idRecette`='$data'";
+					$query=mysqli_query($conn,$sql);
+
+				while($id_alim_recette=mysqli_fetch_assoc($query))
+				{	$result=$id_alim_recette['idAliment'];
+					array_push($tab_alim_recette,$result);
+				}
+
+				for($j=0;$j<$size_forbid_alim;$j++)
+				{	
+					if(in_array($id_forbid_alim[$j],$tab_alim_recette))
+					{		//array_splice($id_recette,1,2);
+							unset($id_recette[$i]);
+							$id_recette=array_values($id_recette);
+							$size_recette=count($id_recette);
+					}
+				}	
+
+				
+
+			//array_values($id_recette);	
+	}
+	mysqli_close($conn);
+}
+$tab_res_final=array_values($tab_res_final);
+$recette=check_recette($tab_res_final);
+$recette=array_unique($recette);
+$recette=array_values($recette);
+
+echo"<br>";
+print_r($recette);
+validation_recette($recette,$id_alim_neg);
+
+echo"<br>";
+print_r($recette);
+
+//$recette contient les recettes propres
+// fonction qui recoit l'id d'un recette 
+// attribuant une note selon la proportion d'élément présent et voulue dans la recette
+/*
+function put_notation($recette)
+{
+
+}*/
 
 // Comparer score des recettes si celle ci sont visés par les aliments negatif et positifs
 // sinon visé que par du positif = note positive
