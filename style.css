@@ -244,7 +244,6 @@ h3{
 /*top: 0px;*/
 height:50%;
 width: 100%;
-background-color: rgba(255, 255, 255, 0.25);
 }
 
 #ah_liste_aliments{
@@ -252,7 +251,6 @@ display: inline-block;
 height: 100%;
 width: 49%;
 left: 0px;
-background-color: rgba(50, 255, 255, 0.25);
 }
 
 #ah_liste_recettes{
@@ -260,7 +258,14 @@ display: inline-block;
 height: 100%;
 width: 49%;
 left: 0%;
-background-color: rgba(255, 50, 255, 0.25);	
 }
 
 
+#chemin_aliment{
+height: 10%;
+width: 49%;
+left: 0%;
+}
+
+#liste_fils_aliment{
+}
