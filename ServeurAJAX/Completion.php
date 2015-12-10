@@ -14,8 +14,10 @@
     $return = array();
 
     while ($lib_aliment_sugg=mysqli_fetch_assoc($query)) {
-     $result=$lib_aliment_sugg['LibAliment'];
-    array_push($return,$result);
+     if($lib_aliment_sugg['LibAliment']!="Aliment")
+      {$result=$lib_aliment_sugg['LibAliment'];
+       array_push($return,$result);
+       }
     }
   $return=array_map("utf8",$return);
     $json=json_encode($return); 

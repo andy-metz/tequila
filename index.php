@@ -38,18 +38,21 @@ include 'initialisation.php';
 	</div>
 	<div id="partieAutocompletion">  	
 		<p>Vous pouvez choisir 6 aliments en tout! Ceux que vous voulez à gauche, et ceux que vous ne voulez pas à droite.</p>
+		<br>
+		<!--<p>La note corresponds au rapport (NB_ALIMENT_CONTENUE)/(NB_ALIMENT_TOTAL)<p>
+		<p>NB_ALIMENT_TOTAL corresponds au nombre d'aliment de la recette courante.</p>
+		<p>NB_ALIMENT_CONTENUE corresponds au nombre d'aliment qui sont désirés et contenue dans la recette courante.</p>-->
 		<div id="wrapper1">
 			<div class="search_input_wrapper">
 					<button class="add_search_input">Ajouter un aliment</button>
 					<div><input type="text" name="SearchInput[]" class="autocomplete_button"></div>
 			</div>
 		</div>
-
 		<input type="submit" value="Mixer" id="SubmitResult" ></input>
 
 		<div id="wrapper2">
 			<div class="search_input_wrapper1">
-					<button class="add_search_input1">Ajouter un aliment</button>
+					<button class="add_search_input1">Supprimer un aliment</button>
 					<div><input type="text" name="SearchInput[]" class="autocomplete_button"></div>
 			</div>
 		</div>
