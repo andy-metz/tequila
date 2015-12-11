@@ -12,7 +12,6 @@ nav{
 	width:70%;
 	height:10%;
 	overflow:hidden;
-	color:;
 	background-color:rgba(69, 191, 187, 0.5);
 	border-bottom:solid;
 	border-bottom-color:rgba(18, 132, 187, 0.5);
@@ -132,7 +131,8 @@ position:absolute;
 	top:10%;
 	left:15%;
 	width:70%;
-	height:100%;
+	min-height:100%;
+	overflow: auto;
 	background-color: rgba(255, 255, 255, 0.5);
 	z-index:-5;
 
@@ -238,34 +238,31 @@ h3{
 	text-align: center;
 }
 
+a{
+	text-decoration: none;
+}
 #ah_liste_aliments_liste_recettes{
 /*position: relative;*/
-/*display:block;*/
-/*top: 0px;*/
+display:block;
+top: 0px;
 height:50%;
 width: 100%;
 }
 
-#ah_liste_aliments{
+#liste_fils_aliment{
 display: inline-block;
 height: 100%;
 width: 49%;
-left: 0px;
+left: 0%;
 }
 
 #ah_liste_recettes{
-display: inline-block;
+display: block;
 height: 100%;
 width: 49%;
-left: 0%;
+position: absolute;
+top: 0px;
+left: 50%;
 }
 
 
-#chemin_aliment{
-height: 10%;
-width: 49%;
-left: 0%;
-}
-
-#liste_fils_aliment{
-}

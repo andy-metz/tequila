@@ -1,6 +1,11 @@
 <?php
 $id_recette=5;
 $id_aliment=25;
+
+
+if(isset($_POST['librecette']))
+{
+$librecette = $_POST['librecette'];
 // Create connection
 $conn = mysqli_connect("127.0.0.1", "root", "", "myDB");
 mysqli_set_charset($conn,("UTF8"));
@@ -9,7 +14,7 @@ mysqli_set_charset($conn,("UTF8"));
 
 
 
-$sql = "select * from recette where idRecette = '".$id_recette."';";
+$sql = "select * from recette r where LibRecette = '".$librecette."';";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) 
@@ -28,4 +33,5 @@ else
     echo "Pas de résultat";
 }
 $conn->close();
+}
 ?> 
