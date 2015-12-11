@@ -1,6 +1,6 @@
 <?php
 $id_recette=0;
-$id_aliment=25;
+$id_aliment=235;
 // Create connection
 $conn = mysqli_connect("127.0.0.1", "root", "", "myDB");
 mysqli_set_charset($conn,("UTF8"));

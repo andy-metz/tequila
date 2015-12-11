@@ -2,7 +2,6 @@
 
 	<div id="ah_liste_aliments">
 		<div id="chemin_aliment">
-Aliment
 		</div>
 		<div id="liste_fils_aliment">
 		<?php include'ServeurPrincipal/hierarchie_liste_aliment.php' ?>
