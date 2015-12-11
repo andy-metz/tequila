@@ -123,8 +123,81 @@ $(document).ready(function() {
                 $('div#result').html(data);
             });
     });
+
 });
 
+$(document).on("click","button[class^=sous_categorie]", function(e){
+        e.preventDefault;        
+        var libaliment_voulu;
+        var myClass = (this).className;
+        console.log(myClass);
+
+        $("a").filter('.'+myClass).each(function(){
+            libaliment_voulu=$(this).text();
+
+            console.log(libaliment_voulu);
+        });
+
+       $.post("./ServeurPrincipal/hierarchie_liste_aliment.php",{libaliment:libaliment_voulu},
+            function(data){
+                $('div#liste_fils_aliment').html(data);
+            });    
+        
+
+     });
+
+
+$(document).on("click","button[class^=id_super_categorie]", function(e){
+        e.preventDefault;        
+        var libaliment_voulu;
+          libaliment_voulu=$(this).text();
+            console.log(libaliment_voulu);
+/*
+        $("button[class^=id_super_categorie]").each(function(e){
+            libaliment_voulu=$(this).attr("value");
+            console.log(libaliment_voulu);
+        });
+*/
+       $.post("./ServeurPrincipal/hierarchie_liste_aliment.php",{libaliment:libaliment_voulu},
+            function(data){
+                $('div#liste_fils_aliment').html(data);
+            });    
+        
+
+     });
 
 
 
+$(document).on("click","a[class^=sous_categorie]", function(e){
+        e.preventDefault;        
+        var libaliment_voulu;
+        var myClass = (this).className;        
+          libaliment_voulu=$(this).text();
+            console.log(libaliment_voulu);
+
+        $("a").filter('.'+myClass).each(function(){
+            libaliment_voulu=$(this).text();
+        });
+
+       $.post("./ServeurPrincipal/hierarchie_liste_recette.php",{libaliment:libaliment_voulu},
+            function(data){
+                $('div#ah_liste_recettes').html(data);
+            });    
+        
+
+     });
+
+$(document).on("click","a[class^=affichage_recette]", function(e){
+        e.preventDefault;        
+        var recette_voulu;
+        var myClass = (this).className;        
+          recette_voulu=$(this).text();
+            console.log(recette_voulu);
+
+       $.post("./ServeurPrincipal/hierarchie_affichage_recette.php",{librecette:recette_voulu},
+            function(data){
+                $('div#ah_affichage_recette').html(data);
+            });    
+        
+
+     });

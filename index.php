@@ -1,4 +1,4 @@
-<?php  
+﻿<?php  
 header('Content-Type: text/html; charset=utf-8');
 include 'initialisation.php'; 
 
@@ -31,8 +31,9 @@ include 'initialisation.php';
 	</p>
 	</div> 
 	<div id="accesHierarchique">
-
-
+		<?php
+			include'ServeurPrincipal/acces_hierarchique.php';
+		?>
 	</div>
 	<div id="logindisplay">
 	</div>
