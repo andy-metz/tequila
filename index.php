@@ -1,6 +1,7 @@
 ﻿<?php  
 header('Content-Type: text/html; charset=utf-8');
 include 'initialisation.php'; 
+include 'login.php';
 
 ?>
 <html>
@@ -61,7 +62,9 @@ include 'initialisation.php';
 		</div>
 	</div>
 	<div id="connexion">
-		<p> yoyoyoyoyoyoyogigiforjgposdjhsdpofihjsdpofihjqpohijqdfohijqdfhmoij</p>
+		<?php
+			formulaireIdentification();
+		?>
 	</div>
 </div>
 
