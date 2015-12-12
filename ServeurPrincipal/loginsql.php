@@ -3,7 +3,7 @@
     include_once 'loginconfig.php';
 
     $servname="localhost";
-    $dbname="cocktail";
+    $dbname="myDB";
     $user="root";
     $mdp="";
 

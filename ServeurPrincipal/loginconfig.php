@@ -133,7 +133,7 @@
                 return true;
         }
         $errmsg=$errmsg."Date de naissance non valide.</br>\n";
-        $errmsg=$errmsg."Formats autoris$eacute;s: jj/mm/aaaa ou aaaa-mm-jj</br>\n";
+        $errmsg=$errmsg."Formats autoris&eacute;s: jj/mm/aaaa ou aaaa-mm-jj</br>\n";
         return false;
     }
 

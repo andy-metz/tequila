@@ -100,7 +100,7 @@ $(document).ready(function() {
      });
 
      $("#SubmitResult").click(function(e){
-        e.preventDefault;
+        e.preventDefault();
         var wanted_element=[];
         var forbid_element=[];
 
@@ -125,9 +125,16 @@ $(document).ready(function() {
     });
 
 });
+/*===============================
 
+
+    EVENT HANDLER 
+        ACCES
+    HIERARCHIQUE
+
+================================*/
 $(document).on("click","button[class^=sous_categorie]", function(e){
-        e.preventDefault;        
+        e.preventDefault();        
         var libaliment_voulu;
         var myClass = (this).className;
         console.log(myClass);
@@ -148,17 +155,12 @@ $(document).on("click","button[class^=sous_categorie]", function(e){
 
 
 $(document).on("click","button[class^=id_super_categorie]", function(e){
-        e.preventDefault;        
+        e.preventDefault();        
         var libaliment_voulu;
           libaliment_voulu=$(this).text();
             console.log(libaliment_voulu);
-/*
-        $("button[class^=id_super_categorie]").each(function(e){
-            libaliment_voulu=$(this).attr("value");
-            console.log(libaliment_voulu);
-        });
-*/
-       $.post("./ServeurPrincipal/hierarchie_liste_aliment.php",{libaliment:libaliment_voulu},
+
+    $.post("./ServeurPrincipal/hierarchie_liste_aliment_pop.php",{libaliment:libaliment_voulu},
             function(data){
                 $('div#liste_fils_aliment').html(data);
             });    
@@ -169,7 +171,7 @@ $(document).on("click","button[class^=id_super_categorie]", function(e){
 
 
 $(document).on("click","a[class^=sous_categorie]", function(e){
-        e.preventDefault;        
+        e.preventDefault();        
         var libaliment_voulu;
         var myClass = (this).className;        
           libaliment_voulu=$(this).text();
@@ -188,7 +190,7 @@ $(document).on("click","a[class^=sous_categorie]", function(e){
      });
 
 $(document).on("click","a[class^=affichage_recette]", function(e){
-        e.preventDefault;        
+        e.preventDefault();        
         var recette_voulu;
         var myClass = (this).className;        
           recette_voulu=$(this).text();

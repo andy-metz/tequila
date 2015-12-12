@@ -1,7 +1,7 @@
 ﻿<?php  
 header('Content-Type: text/html; charset=utf-8');
 include 'initialisation.php'; 
-include 'login.php';
+include 'ServeurPrincipal/login.php';
 
 ?>
 <html>
@@ -37,6 +37,14 @@ include 'login.php';
 		?>
 	</div>
 	<div id="logindisplay">
+		<?php 
+		if($_SESSION["connu"]===false){
+			echo "Vous dezvez être connecté pour profiter de cette fonctionnalité";
+		}
+		else{
+			include("ServeurPrincipal/Favori.php");
+		}
+		?>
 	</div>
 	<div id="partieAutocompletion">  	
 		<p>Vous pouvez choisir 6 aliments en tout! Ceux que vous voulez à gauche, et ceux que vous ne voulez pas à droite.</p>
@@ -63,7 +71,13 @@ include 'login.php';
 	</div>
 	<div id="connexion">
 		<?php
+
 			formulaireIdentification();
+			if($_SESSION["connu"]===false){
+			echo "<br>";
+			echo "Pensez à vous inscrire !"	;
+			 formulaireEnregistrement();
+			}
 		?>
 	</div>
 </div>

@@ -14,8 +14,21 @@ else
 // Create connection
 $conn = mysqli_connect("127.0.0.1", "root", "", "myDB");
 mysqli_set_charset($conn,("UTF8"));
+/*
+echo $libaliment ;
+function affiche_chemin($libelle)
+{
+	$conn = mysqli_connect("127.0.0.1", "root", "", "myDB");
+	mysqli_set_charset($conn,("UTF8"));
 
-// DSINTGNER DEUX BOUTONS : 1 DIAPLY PERE, 1 DISPLAY COURANT, + AFFICHAGE LISTE_FILS(DEJA IMPLEMENTE)
+
+
+	$conn->close();
+}*/
+//display kes catégories fils du oères de l'aliment 
+
+
+
 
 // requete pour trouver les sous-aliments
 $sql = "select af.libaliment
