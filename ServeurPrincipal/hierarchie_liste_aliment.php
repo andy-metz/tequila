@@ -1,6 +1,7 @@
 <?php
-session_start();
-if(!isset($_POST['libaliment']))
+include_once 'session.php';
+startSession();
+if(!isset($_POST['libaliment']) )
 {
 	$libaliment = 'aliment';
 	$_SESSION['chemin'] = array($libaliment);
@@ -15,8 +16,9 @@ else
 	unset($_SESSION['chemin']);
 	$_SESSION['chemin'] = array();
 	foreach ($liste as $aliment) {
+
     	echo "<button type='button' class='id_super_categorie'>".$aliment."</button>";	
-    	array_push($_SESSION['chemin'], $aliment);
+    	array_push($_SESSION['chemin'], $aliment);    	
 		if ($libaliment == $aliment){
 			$present = True;
 			break;			
