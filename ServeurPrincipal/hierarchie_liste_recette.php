@@ -1,6 +1,4 @@
 <?php
-$id_recette=0;
-$id_aliment=235;
 
 
 if(isset($_POST['libaliment']))
