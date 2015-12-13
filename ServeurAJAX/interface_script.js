@@ -158,7 +158,6 @@ $(document).on("click","button[class^=id_super_categorie]", function(e){
         e.preventDefault();        
         var libaliment_voulu;
           libaliment_voulu=$(this).text();
-            console.log(libaliment_voulu);
 
     $.post("./ServeurPrincipal/hierarchie_liste_aliment_pop.php",{libaliment:libaliment_voulu},
             function(data){
