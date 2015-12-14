@@ -31,7 +31,7 @@
     // plus pratique pour tester le résultat.
 
     function checkSize($value,$name)
-    {
+    {   print_r($value);
         global $MINMAX,$errmsg;
         $size=strlen($value);
         if($size>=$MINMAX[$name]["min"]||$size<=$MINMAX[$name]["max"])
@@ -112,11 +112,13 @@
     }
 
     function testNaissance($naissance)
-    {
+    {   
         global $MINMAX,$errmsg;
         if(!checkSize($naissance,"date de naissance"))
             return false;
-        if(in_array("/",$naissance)){
+        //$naissance=str_split($naissance);
+        //if(in_array("/",$naissance))
+          if(strpos($naissance,'/')!==FALSE) {
             $resultat=explode("/",$naissance);
             $jour  = $resultat[0];
             $mois  = $resultat[1];
@@ -124,7 +126,7 @@
             if(checkdate($mois, $jour, $annee)===true)
                 return true;
         }
-        else if(in_array("-",$naissance)){
+        else if(strpos($naissance,'-')!==FALSE){
             $resultat=explode("-",$naissance);
             $annee = $resultat[0];
             $mois  = $resultat[1];

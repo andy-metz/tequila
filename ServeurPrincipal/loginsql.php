@@ -132,7 +132,8 @@
 
 
     function addRowToUserTable($array)
-    {
+    {   print_r($array);
+
         global $varNames, $servname, $user, $mdp, $dbname, $tablename;
         foreach($varNames as $name)
             $array[$name]=htmlentities($array[$name]);
@@ -167,10 +168,5 @@
         }
         login($array["mail"],$array["mdp"]);
     }
-
-
-
-
-
 
  ?>

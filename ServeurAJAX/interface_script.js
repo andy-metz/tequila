@@ -51,7 +51,60 @@ $(document).ready(function() {
         minLength :3
     }); 
 
+    $("input[name^='SearchInputFavori'").autocomplete({
+        source:"./ServeurPrincipal/CompletionFavorie.php",
+        minLength:2
+    });
+
+    $("input[id^=SubmitFavori]").click(function(e){
+        e.preventDefault();
+        var recette_to_insert;
+        var user_to_insert;
+
+
+        $("div input[name^='SearchInputFavori'").each(function(e){
+            recette_to_insert=$(this).val();
+        });
+
+        $("div.iduserfavori p").each(function(e)
+        {
+            user_to_insert=$(this).text();
+
+        });
+
+        console.log(recette_to_insert);
+        console.log(user_to_insert);
+         $.post("./ServeurAJAX/ajoutfavori.php",{insertrecette:recette_to_insert,userinsert:user_to_insert});            
+    });
+    $("input[name^='SearchInputDeleteFavori']").autocomplete({
+        source:"./ServeurAJAX/deletefavoricompletion.php",
+        minLength:1
+    });
+    $("input[id^='DeleteFavori']").click(function(e){
+        e.preventDefault();
+        var favori_to_delete;
+        var user_deletion;
+        $("input[name^='SearchInputDeleteFavori']").each(function(e){
+            favori_to_delete=$(this).val();
+        });
+
+          $("div.iduserfavori p").each(function(e)
+        {
+            user_deletion=$(this).text();
+
+        });
+        console.log(favori_to_delete);
+        console.log(user_deletion);
+
+        $.post("./ServeurAJAX/deletefavori.php",{recette_to_delete:favori_to_delete,user_id:user_deletion });
+    });
+
     $("#menu").menu();
+
+    $("#idnaissance").datepicker({
+      changeMonth: true,
+      changeYear: true
+    });
     /*"Slide"  "swing"  effect "puff"
     .fadeOut("slow");
     .show

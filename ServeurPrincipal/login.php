@@ -61,13 +61,17 @@
             }
             else{
                 $err=fullCheck($_POST);
+                print_r($_POST);
+
                 if($err!=""){
+                    echo " COUCOU LES AMIS";
                     echo '<div id="form">'."\n";
                             print_register_form();
                             echo $err;
                     echo "</div>";
                 }
                 else{
+
                     addRowToUserTable($_POST);
                     login($_POST["mail"],$_POST["mdp"]);
                     printSession();

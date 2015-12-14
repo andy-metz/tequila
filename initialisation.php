@@ -141,7 +141,15 @@ if (!mysqli_query($conn, $sql)) {
 } 
 
 
-
+$sql ="CREATE TABLE IF NOT EXISTS FAVORI(
+	idUser VARCHAR(100) NOT NULL REFERENCES UTILISATEUR(nom),     
+	LibRecette VARCHAR(200) NOT NULL REFERENCES RECETTE(LibRecette),
+	CONsTRAINT user_a_pour_favori PRIMARY KEY (idUser,LibRecette) 
+	)
+	";
+if(!mysqli_query($conn,$sql)){
+	/* echo '<p class="erreur">'."Erreur creation ESTFILS: " . mysqli_error($conn).'</p>'*/;
+}
 
 
 //on parcourt $hierarchie ( le tableau d'aliment)

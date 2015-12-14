@@ -38,11 +38,11 @@ include 'ServeurPrincipal/login.php';
 	</div>
 	<div id="logindisplay">
 		<?php 
-		if($_SESSION["connu"]===false){
+		if($_SESSION["connu"]==false){
 			echo "Vous dezvez être connecté pour profiter de cette fonctionnalité";
 		}
 		else{
-			include("ServeurPrincipal/Favori.php");
+			include'ServeurPrincipal/Favorie.php';
 		}
 		?>
 	</div>
@@ -75,7 +75,7 @@ include 'ServeurPrincipal/login.php';
 			formulaireIdentification();
 			if($_SESSION["connu"]===false){
 			echo "<br>";
-			echo "Pensez à vous inscrire !"	;
+			echo "<p>Pensez à vous inscrire !</p>"	;
 			 formulaireEnregistrement();
 			}
 		?>
