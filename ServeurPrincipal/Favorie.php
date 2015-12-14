@@ -1,6 +1,6 @@
 <?php
 	$user=$_SESSION['nom'];
-	echo "<p> Cliquer sur le bouton pour ajouter vos favoris </p>"."<div class='iduserfavori'><p>".$user."</p></div>";
+	echo "<p> Cliquer sur le bouton pour ajouter vos favoris </p>"."<p>Vous êtes:</p>"."<div class='iduserfavori'><p>-".$user."</p></div>";
 	echo "<div><input type='text' name='SearchInputFavori' class='autocomplete_button'></div>";
 
 	echo"<div><input type='submit' value='Ajouter au favoris' id='SubmitFavori' ></div>";

@@ -61,7 +61,6 @@
             }
             else{
                 $err=fullCheck($_POST);
-                print_r($_POST);
 
                 if($err!=""){
                     echo " COUCOU LES AMIS";

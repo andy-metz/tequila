@@ -27,9 +27,11 @@ include 'ServeurPrincipal/login.php';
 
 <div class="display-section" >
 	<div id="accueil">
-		<p> 
-	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum a nunc et est pellentesque maximus in vel ligula. Nunc rhoncus, orci id placerat lacinia, enim justo vestibulum tellus, ornare finibus est nisi at urna. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec bibendum commodo libero, et condimentum dui suscipit sit amet. Nunc pharetra tincidunt mi, in pharetra odio iaculis a. Sed fringilla sed sapien id iaculis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut non interdum tortor. Praesent id malesuada nibh. Proin placerat at lectus sed hendrerit. Vestibulum dignissim, nunc vitae fringilla rutrum, mauris enim ultricies metus, et tempus est ex tincidunt velit.
-	</p>
+		<h1> Bienvenue sur cubalibre</h1>
+		<p>	Dans l'onglet Recettes vous pouvez accéder à l'accès hiérarchiques des recettes.	</p>
+		<p>	Vous devez être connecté pour accéder à vos favoris dons l'onglet Mes favoris.	</p>
+		<p>	Dans trouver ma Recette vous pouvez aller chercher votre recette en fonction d'aliments que vous voulez et vous ne voulez pas.</p>
+		<p> Dans l'onglet connexion vous pouvez vous inscrire ou vous connecter. </p>
 	</div> 
 	<div id="accesHierarchique">
 		<?php
@@ -71,11 +73,12 @@ include 'ServeurPrincipal/login.php';
 	</div>
 	<div id="connexion">
 		<?php
-
 			formulaireIdentification();
 			if($_SESSION["connu"]===false){
 			echo "<br>";
-			echo "<p>Pensez à vous inscrire !</p>"	;
+			echo "<p>Pensez à vous inscrire!</p>"	;
+			echo "<p>Le mot de passe doit avoir Une majuscule , des minuscules et au moins un chiffre</p>";
+			echo"<p>Vous ne pouvez avoir de caractère spéciaux dans aucun champ ce qui veut dire aucun accent ou autre</p>";
 			 formulaireEnregistrement();
 			}
 		?>
