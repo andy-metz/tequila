@@ -39,7 +39,7 @@ include 'ServeurPrincipal/login.php';
 	<div id="logindisplay">
 		<?php 
 		if($_SESSION["connu"]==false){
-			echo "Vous dezvez être connecté pour profiter de cette fonctionnalité";
+			echo "Vous devez être connecté pour profiter de cette fonctionnalité; recharger la page si vous venez de le faire";
 		}
 		else{
 			include'ServeurPrincipal/Favorie.php';
